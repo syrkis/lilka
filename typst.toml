@@ -1,0 +1,15 @@
+[package]
+name = "tyrkis"
+version = "0.0.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/syrkis/tyrkis"
+authors = ["syrkis"]
+license = "MIT"
+description = "Typst template for creating cheatsheets"
+keywords = ["cheat", "sheet", "cheatsheet"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
