@@ -1,5 +1,5 @@
 // #import "src/vitae.typ": vitae
-#import "src/slide.typ": slides, cover-slide, focus-slide, slide
+#import "src/slide.typ": slides, focus-slide, slide, title-slide, appendix
 // #import "src/codex.typ": codex
 #import "src/paper.typ": paper
 
@@ -15,16 +15,16 @@
 
 #let tyrquois(doc) = {
   // base styling
-  set text(font: style.font, lang: "en", size: 13pt)
+  set text(font: style.font, lang: "en")
   set par(justify: true)
   set list(marker: style.list-marker)
 
   // heading style
   set heading(numbering: style.numbering)
   show heading: it => {
-    set align(center)
-    set text(weight: "regular")
-    pad(top: 1.5em, bottom: 1em, it)
+    // set align(center)
+    set text(weight: "regular") // only for paper
+    pad(top: 1.5em, bottom: 1em, it) // only for paper
   }
 
   // equation numbering
