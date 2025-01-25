@@ -1,5 +1,5 @@
 [package]
-name = "tyrkis"
+name = "tyrquois"
 version = "0.0.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/syrkis/tyrkis"

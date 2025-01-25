@@ -1,6 +1,4 @@
 #import "@preview/touying:0.5.5": *
-#import "@preview/equate:0.2.1": equate
-#import "style.typ": style
 #import "utils.typ": format-date, format-title
 
 // Base slide configuration
@@ -64,19 +62,16 @@
 // Cover slide component
 #let cover-slide(leading: 50pt) = touying-slide-wrapper(self => {
   let make-info-section = {
-    set par(leading: 20pt)
     context {
       // text(self.info.title, size: 28pt)
       format-title(self.info.title)
       v(1em)
       text(size: 20pt, weight: "regular", self.info.author)
       if self.info.institution != none {
-        v(0.1em)
         text(size: 20pt, weight: "regular", self.info.institution)
       }
       if self.info.date != none {
-        v(0.1em)
-        text(size: 14pt, format-date(self.info.date))
+        block(text(size: 14pt, format-date(self.info.date)))
       }
     }
   }
@@ -142,19 +137,19 @@
   body,
 ) = {
   // Apply global styles
-  set text(size: style.text-size, font: style.font)
-  set par(leading: style.leading)
+  // set text(size: style.text-size, font: style.font)
+  // set par(leading: style.leading)
   set align(horizon)
-  set list(marker: style.list-marker)
+  // set list(marker: style.list-marker)
 
   // Configure headings
-  show heading.where(level: 1): set heading(numbering: style.numbering)
-  set heading(numbering: "1.1 |")
+  // show heading.where(level: 1): set heading(numbering: style.numbering)
+  // set heading(numbering: "1.1 |")
   // show heading.where(level: 2): set heading(numbering: (..nums) => "1 |")
 
   // Configure math and equations
-  show: equate.with(breakable: true, sub-numbering: true)
-  set math.equation(numbering: "(1.1)", supplement: "Eq.")
+  // show: equate.with(breakable: true, sub-numbering: true)
+  // set math.equation(numbering: "(1.1)", supplement: "Eq.")
 
   // Configure slides
   show: touying-slides.with(

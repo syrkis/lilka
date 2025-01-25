@@ -1,4 +1,36 @@
-#import "src/vitae.typ": *
-#import "src/slide.typ": *
-#import "src/paper.typ": *
-#import "src/codex.typ": *
+// #import "src/vitae.typ": vitae
+#import "src/slide.typ": slides, cover-slide, focus-slide, slide
+// #import "src/codex.typ": codex
+#import "src/paper.typ": paper
+
+#import "@preview/equate:0.2.1": equate
+
+#let style = (
+  font: "New Computer Modern",
+  text-size: 13pt,
+  numbering: "1.1 |",
+  leading: 1.3em,
+  list-marker: "▶",
+)
+
+#let tyrquois(doc) = {
+  // base styling
+  set text(font: style.font, lang: "en", size: 13pt)
+  set par(justify: true)
+  set list(marker: style.list-marker)
+
+  // heading style
+  set heading(numbering: style.numbering)
+  show heading: it => {
+    set align(center)
+    set text(weight: "regular")
+    pad(top: 1.5em, bottom: 1em, it)
+  }
+
+  // equation numbering
+  show: equate.with(breakable: true, sub-numbering: true)
+  set math.equation(numbering: "(1.1)", supplement: "Eq.")
+
+  // content
+  doc
+}

@@ -5,5 +5,5 @@
 #let format-title(title) = {
   set par(leading: 1.5em)
   set align(center)
-  text(size: 21pt, weight: "regular", stretch: 100%)[#smallcaps(title)]
+  text(size: 1.5em, weight: "regular", stretch: 100%)[#smallcaps(title)]
 }
