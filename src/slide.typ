@@ -10,6 +10,10 @@
   footer: context utils.slide-counter.display(),
 )
 
+#let references(file) = {
+  bibliography(file, title: none, style: "ieee")
+}
+
 #let appendix(body) = {
   counter(heading).update(0)
   show heading.where(level: 1): set heading(
@@ -23,11 +27,10 @@
 // Header and footer components
 #let make-header(self) = {
   set text(size: 1.3em)
-  show: pad.with(y: 2em)
   place(
     left,
-    dx: 1.5em,
-    dy: 1.5em,
+    dx: 1em,
+    dy: 1em,
     utils.call-or-display(
       self,
       utils.call-or-display(self, self.store.header),
@@ -38,8 +41,10 @@
 #let make-footer(self) = {
   place(
     right,
-    dx: -2em,
+    dx: -1.5em,
+    dy: -0.5em,
     context {
+      set text(size: 0.7em)
       utils.slide-counter.display() + " of " + utils.last-slide-number
     },
   )
@@ -53,6 +58,7 @@
   composer: auto,
   ..bodies,
 ) = touying-slide-wrapper(self => {
+  set align(horizon)
   let self = utils.merge-dicts(
     self,
     config-page(
@@ -75,6 +81,7 @@
   set par(leading: 2em)
   let title-col = {
     context {
+      set text(size: 0.9em)
       pad(x: 1em, y: 1em, format-title(self.info.title))
       pad(x: 1em, y: 1em, text(self.info.author))
       pad(text(size: 14pt, format-date(self.info.date)))
@@ -82,12 +89,12 @@
   }
 
   let table-col = {
-    set text(size: 1.5em)
+    set text(size: 1.3em)
     components.custom-progressive-outline(depth: 1, numbered: (true,))
   }
 
   let body = grid(
-    columns: (3fr, 2fr),
+    columns: (1fr, 1fr),
     rows: 1fr,
     gutter: 1em,
     align(center + horizon, title-col), align(left + horizon, table-col),
@@ -96,7 +103,7 @@
   let self = utils.merge-dicts(
     self,
     config-common(freeze-slide-counter: true),
-    config-page(margin: 0em),
+    config-page(margin: 1em),
   )
   touying-slide(self: self, body)
 })
@@ -116,8 +123,11 @@
   body,
 ) = {
   show: touying-slides.with(
-    config-page(paper: "presentation-" + aspect-ratio),
-    config-common(slide-fn: slide),
+    config-page(
+      paper: "presentation-" + aspect-ratio,
+      margin: (y: 2em, x: 2em),
+    ),
+    config-common(slide-fn: slide), // , margin: 2em),
     config-store(align: align, header: header, footer: footer),
     ..args,
   )
