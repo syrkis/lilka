@@ -10,6 +10,7 @@
   doc,
 ) = {
   // Base styling
+  set text(size: 13pt)
   show figure: it => {
     it.body
     pad(text(size: 0.9em, it.caption))
@@ -19,17 +20,8 @@
   align(center)[
     #block(spacing: 2em)[
       #format-title(title)
-      // #title
-
-      #if author != none [#text(size: 1.2em)[#author]]
-
-      #if date != none [
-        #text(
-          size: 1em,
-          style: "italic",
-        )
-        format-date(date)
-      ]
+      #if author != none [#text(size: 1.1em)[#author]]
+      #if date != none [format-date(date)]
     ]
   ]
 

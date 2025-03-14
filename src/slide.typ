@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.5": *
+#import "@preview/touying:0.6.1": *
 #import "@preview/equate:0.2.1": equate
 #import "utils.typ": format-date, format-title
 
@@ -90,13 +90,17 @@
 
   let table-col = {
     set text(size: 1.3em)
-    components.custom-progressive-outline(depth: 1, numbered: (true,))
+    components.custom-progressive-outline(
+      depth: 1,
+      numbered: (true,),
+      vspace: (0.5em,),
+    )
   }
 
   let body = grid(
     columns: (1fr, 1fr),
     rows: 1fr,
-    gutter: 1em,
+    gutter: 2em,
     align(center + horizon, title-col), align(left + horizon, table-col),
   )
 

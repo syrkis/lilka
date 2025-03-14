@@ -1,26 +1,17 @@
-// #import "src/vitae.typ": vitae
-#import "src/slide.typ": (
-  slides,
-  focus-slide,
-  slide,
-  title-slide,
-  appendix,
-  references,
-)
-// #import "src/codex.typ": codex
-#import "src/paper.typ": paper
+#import "src/slide.typ": *
+#import "src/codex.typ": *
+#import "src/paper.typ": *
 
 #import "@preview/equate:0.2.1": equate
 
 #let style = (
   font: "New Computer Modern",
-  // text-size: 13pt,
   numbering: "1.1 |",
   leading: 1.3em,
   list-marker: "▶",
 )
 
-#let tyrquois(doc) = {
+#let lilka(doc) = {
   // base styling
   set text(font: style.font, lang: "en")
   set par(justify: true)

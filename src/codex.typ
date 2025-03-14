@@ -1,7 +1,9 @@
-#import "style.typ": *
+// #import "style.typ": *
 #import "utils.typ": *
 #import "@preview/equate:0.2.1": equate
-#import "@preview/subpar:0.2.0"
+#import "@preview/subpar:0.2.1"
+#import "@preview/i-figured:0.2.4"
+
 
 // src/templates/lib.typ
 #let codex(
@@ -13,7 +15,7 @@
   doc,
 ) = {
   // base styling
-  set text(font: style.font, lang: "en", size: 13pt)
+  // set text(font: style.font, lang: "en", size: 13pt)
   // set page(height: auto, margin: (x: 0.1in, y: 0.1in))
   show: equate.with(breakable: true, sub-numbering: true)
   set math.equation(numbering: "(1.1)", supplement: "Eq.")
@@ -42,7 +44,7 @@
   )
   set figure(
     numbering: (..num) => numbering(
-      "1.1",
+      "1.1.a",
       counter(heading).get().first(),
       num.pos().first(),
     ),
@@ -76,9 +78,15 @@
   }
 
   // add abstract
-  set heading(numbering: style.numbering)
+  // set heading(numbering: style.numbering)
 
   outline()
+  // apply the show rules (these can be customized)
+  show heading: i-figured.reset-counters
+  show figure: i-figured.show-figure.with(level: 1)
+
+  // show an outline
+  i-figured.outline()
 
   pagebreak()
 
