@@ -34,7 +34,4 @@
   }
 
   doc
-
-  pagebreak()
-  bibliography("./zotero.bib", title: "References")
 }
