@@ -1,4 +1,3 @@
-#import "style.typ": style
 
 #let vitae(
   title: none,
@@ -10,8 +9,10 @@
   summary: none,
   body,
 ) = {
+  set list(marker: "▶", spacing: 0.5em)
+
   set page(paper: "us-letter")
-  set text(font: style.font)
+  // set text(font: style.font)
   show heading: it => [
     #block()[
       #v(-0.5em)
@@ -26,10 +27,11 @@
   //
   if name != none {
     align(upper(text(17pt, name, tracking: 0.2em)), center)
+    v(-0.5em)
   }
   if contact != none {
     align(
-      par(grid(columns: (1fr,) * 3, ..contact.map(c => [#c]), row-gutter: 0em)),
+      grid(columns: (1fr,) * 3, ..contact.map(c => [#c]), row-gutter: 0em),
       center,
     )
   }
@@ -42,14 +44,13 @@
     align(par(text(summary)), center)
   }
   if skills != () {
-    v(0.5em)
     align(
-      grid(columns: (1fr,) * 3, ..skills.map(s => [#s]), row-gutter: 1em),
+      grid(columns: (1fr,) * 3, ..skills.map(s => [#s]), row-gutter: 0.7em),
       center,
     )
   }
   // justify text
-  set par(justify: true)
+  set par(justify: true, leading: 0.5em)
   body
 }
 #let entry(
@@ -64,6 +65,6 @@
     columns: (1fr, auto),
     [#strong(title), #subtitle, #date], url,
   )
-  v(-0.5em) // Add negative vertical space
+  v(-0.6em) // Add negative vertical space
   body
 }

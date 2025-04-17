@@ -1,11 +1,11 @@
 #import "src/slide.typ": *
 #import "src/codex.typ": *
 #import "src/paper.typ": *
+#import "src/vitae.typ": *
 
 #import "@preview/equate:0.2.1": equate
 
 #let style = (
-  font: "New Computer Modern",
   numbering: "1.1 |",
   leading: 1.3em,
   list-marker: "▶",
@@ -13,7 +13,6 @@
 
 #let lilka(doc) = {
   // base styling
-  set text(font: style.font, lang: "en")
   set par(justify: true)
   set list(marker: style.list-marker)
 

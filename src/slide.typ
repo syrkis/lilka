@@ -139,5 +139,6 @@
   set align(horizon)
   set text(size: 1.7em)
   set par(leading: 1.3em)
+  title-slide()
   body
 }

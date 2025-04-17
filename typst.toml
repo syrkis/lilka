@@ -1,12 +1,12 @@
 [package]
 name = "lilka"
-version = "0.0.0"
+version = "0.1.0"
 entrypoint = "lib.typ"
-repository = "https://github.com/syrkis/tyrkis"
-authors = ["@syrkis"]
+repository = "https://github.com/syrkis/lilka"
+authors = ["Noah Syrkis"]
 license = "MIT"
-description = "Typst template for creating cheatsheets"
-keywords = ["cheat", "sheet", "cheatsheet"]
+description = "A presentation template."
+compiler = "0.13.0"
 categories = ["presentation"]
 
 [template]
