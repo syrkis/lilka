@@ -2,6 +2,7 @@
 #import "src/codex.typ": *
 #import "src/paper.typ": *
 #import "src/vitae.typ": *
+#import "src/wwweb.typ": *
 #import "@preview/equate:0.2.1": equate
 
 #let style = (
