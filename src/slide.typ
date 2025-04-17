@@ -10,10 +10,6 @@
   footer: context utils.slide-counter.display(),
 )
 
-#let references(file) = {
-  bibliography(file, title: none, style: "ieee")
-}
-
 #let appendix(body) = {
   counter(heading).update(0)
   show heading.where(level: 1): set heading(
@@ -135,6 +131,7 @@
     config-store(align: align, header: header, footer: footer),
     ..args,
   )
+
 
   set align(horizon)
   set text(size: 1.7em)
